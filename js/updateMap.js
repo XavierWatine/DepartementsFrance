@@ -27,15 +27,17 @@ $(document).on('keypress',function(e) {
 });
 
 function getClickedCode(e, code) {
-	timer();
 
 	if (!depFound.includes(code)) {
 		for (let i=0; i<data.length; i++) {
 		if(data[i]["N°"] == code) {
+			// if (true) {
 			if(code == depToFind) {
 				blink(code, 'green');
 				sound("success");
-				depFound.push(depLeft.splice(r, 1)[0]);
+				let newFound = depLeft.splice(r, 1)
+				console.log(depLeft.length);
+				depFound.push(newFound[0]);
 				r = Math.floor(Math.random()*depLeft.length);
 				depToFind = depLeft[r];
 				let index;
@@ -50,6 +52,7 @@ function getClickedCode(e, code) {
 				} else {
 					$("#depToFind").text(winingSentence);
 					run = false;
+					init = true;
 				}
 				
 				setTimeout(function(){ 

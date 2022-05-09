@@ -48,7 +48,7 @@ function sound(state) {
 
 	if (state=="success") {
 
-		if (badStreak < 10) {
+		if (badStreak < 11) {
 			let i = Math.min(streak, 2);
 			successSounds[i].play();
 		} else {

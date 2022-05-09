@@ -10,6 +10,8 @@ let r;
 let mistakes = 0;
 
 let run = false;
+let init = true;
+
 
 let streak = 0;
 let badStreak = 0;
@@ -33,19 +35,26 @@ $(document).ready(function(){
 });
 
 $(document).on('click', function() {
-	if(!run) {
-		for (let i=0; i<data.length; i++) {
-			depLeft.push(data[i]["N°"]);
+	if(init) {
+		if ($("#timer")[0].innerHTML == "00:00:00") {
+			for (let i=0; i<data.length; i++) {
+				depLeft.push(data[i]["N°"]);
+			}
+			r = Math.floor(Math.random()*depLeft.length);
+			// console.log(r);
+			// r = 74;
+			depToFind = depLeft[r];
+			$("#depToFind").text(data[r]["N°"].split('-')[1] + " - " + data[r]["Département"]);
+			run = true;
+			timer();
+			updateMap();
+			$("#help").remove();
+			init = false;
+		} else {
+			console.log("test");
+			location.reload();
 		}
-		r = Math.floor(Math.random()*depLeft.length);
-		// console.log(r);
-		// r = 74;
-		depToFind = depLeft[r];
-		$("#depToFind").text(data[r]["N°"].split('-')[1] + " - " + data[r]["Département"]);
-		run = true;
-		timer();
-		updateMap();
-		$("#help").remove();
+		
 	}
 })
 
