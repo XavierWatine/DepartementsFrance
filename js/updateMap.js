@@ -15,11 +15,14 @@ function blink(code, col) {
 }
 
 $(document).on('keypress',function(e) {
-	console.log(e.which);
-    if(e.which == 116) {   
+    if(e.which == 116) { // t key
     	blink(depToFind, "blue");
     	mistakes += 5;
     	$("#mistakes").text("Erreurs : " + mistakes);
+    } else if (e.which == 100) { // d key
+    	bgCol = "#000";
+    	$("body").css('background-color', bgCol);
+    	$("#map")[0].children[0].attributes.style.value = "background-color: " + bgCol;
     }
 });
 
@@ -48,9 +51,7 @@ function getClickedCode(e, code) {
 					run = false;
 				}
 				
-				setTimeout(function(){
-					$('#map').remove();
-					$('body').append('<div id="map"></div>');  
+				setTimeout(function(){ 
 					updateMap();
 				}, 150);
 			} else {
@@ -64,7 +65,7 @@ function getClickedCode(e, code) {
 	}
 }
 
-function noHover(e, el, code) {
+function hover(e, el, code) {
 	if (!depFound.includes(code)) {
 		el.html('?');
 	} else {
@@ -78,24 +79,30 @@ function noHover(e, el, code) {
 		el.html("<center><b>" + code.split('-')[1] + " - " + el.html() + "</b> <br/>" + data[index]["Chef-lieu/préfecture"] + "</center>");
 	}
 	
-	// if
+	if (el[0].style.left=="" || el.html() == '?') {
+		el[0].remove();
+	} else {
+		$("body").append(el);
+	}
+	
 }
 
 
 
 
 function updateMap() {
-
+	$('#map').remove();
+	$('#mapWrapper').append('<div id="map"></div>');
+	$(".jvectormap-tip").remove();
 	$('#map').vectorMap({
 		map: 'fr_merc',
-		backgroundColor: '#4AC8E8',
+		backgroundColor: bgCol,
 		onRegionClick: getClickedCode,
-		onRegionTipShow: noHover,
+		onRegionTipShow: hover,
 		labels: {
 			regions: {
 		        render: function(code) {
 		        	
-					console.log(depLeft.length);
 					let doNotShow = [...depLeft];
 					doNotShow.push('FR-GP', 'FR-MQ', 'FR-GF', 'FR-YT', 'FR-RE');
 					if (doNotShow.indexOf(code) === -1) {
@@ -150,9 +157,12 @@ function updateMap() {
 		regionStyle: {
 
 		}
+
 	});
 
 
+	
+	$(".jvectormap-container>div").remove();
 
 	let allPath = $("path");
 	for (let i=0; i<allPath.length; i++) {

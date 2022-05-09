@@ -5,6 +5,11 @@
 	font-family: Arial;
 }
 
+@font-face{
+	font-family: 'digital-clock-font';
+	src: url('../ext/fonts/AppleIiScreenTypeface-2aP3.ttf');
+}
+
 body {
 	background-color: #4AC8E8;
 }
@@ -13,37 +18,62 @@ p {
 	font-size: 25px;
 }
 
-#map {
-	height: 90vh;
-}
+
 
 .wrapper {
-	height: 10vh;
+	height: 12vh;
 	padding-top: 2vh;
 	display: grid;
 	width: 100%;
 	grid-template-columns: repeat(3, 1fr);
 }
 
-#depToFind {
-	/*padding-left: 5vw;*/
+.wrapper > p {
 	display: inline-block;
-	grid-column: 1;
 	text-align: center;
-	width: 35vw;
+	width: 33vw;
+	font-size: 5vh;
+	font-weight: bold;
+
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+
+	color: white;
+	text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
+	-moz-text-shadow: 0 0 2px #000;
+	-webkit-text-shadow: 0 0 2px #000;
+}
+
+#map {
+	display: inline-block;
+	height: 100%;
+	grid-column: 1 / 6;
+
+	max-width: 100%;
+	max-height: 85vh;
+}
+
+#mapWrapper {
+	height: 85vh;
+	grid-template-columns: repeat(5, 1fr);
+}
+
+#depToFind {
+	grid-column: 1;
+	vertical-align: middle;
+	
 }
 
 #timer {
-	display: inline-block;
 	grid-column: 2;
-	text-align: center;
-	width: 30vw;
+	font-family: "digital-clock-font";
+	font-size: 8vh;
+	font-weight: inherit;
+	padding: 0;
 }
 
 
 #mistakes {
-	display: inline-block;
 	grid-column: 3;
-	text-align: center;
 	width: 30vw;
 }

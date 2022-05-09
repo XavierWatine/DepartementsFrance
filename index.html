@@ -6,12 +6,12 @@
 	<title>Départements Français</title>
 
 	<!-- Load jQuery -->
-	<script type="text/javascript" src="libs/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="ext/libs/jquery-3.6.0.min.js"></script>
 	<!-- Load jQuery.csv -->
-	<script type="text/javascript" src="libs/jquery.csv.min.js"></script>
+	<script type="text/javascript" src="ext/libs/jquery.csv.min.js"></script>
 	<!-- Load Map -->
-	<link rel="stylesheet" type="text/css" href="libs/jquery-jvectormap-2.0.5.css">
-	<script type="text/javascript" src="libs/jquery-jvectormap-2.0.5.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="ext/libs/jquery-jvectormap-2.0.5.css">
+	<script type="text/javascript" src="ext/libs/jquery-jvectormap-2.0.5.min.js"></script>
 	<script type="text/javascript" src="js/jquery-jvectormap-fr-merc.js"></script>
 
 	<!-- Load style -->
@@ -26,11 +26,13 @@
 <body>
 	
 	<div class="wrapper">
-		<p id="depToFind"></p>
+		<p id="depToFind">Clique pour commencer</p>
 		<p id="timer">00:00:00</p>
 		<p id="mistakes">Erreurs : 0</p>
 	</div>
-	<div id="map"></div>
+	<div id="mapWrapper" class="wrapper">
+		<div id="map"></div>
+	</div>
 
 	<!-- load chrono -->
 	<script type="text/javascript" src="js/timer.js"></script>
