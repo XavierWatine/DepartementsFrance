@@ -20,7 +20,7 @@ $(document).on('keypress',function(e) {
     	mistakes += 5;
     	$("#mistakes").text("Erreurs : " + mistakes);
     } else if (e.which == 100) { // d key
-    	bgCol = "#000";
+    	bgCol = "#100044";
     	$("body").css('background-color', bgCol);
     	$("#map")[0].children[0].attributes.style.value = "background-color: " + bgCol;
     }
