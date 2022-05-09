@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Départements Français</title>
+
+	<!-- Load jQuery -->
+	<script type="text/javascript" src="libs/jquery-3.6.0.min.js"></script>
+	<!-- Load jQuery.csv -->
+	<script type="text/javascript" src="libs/jquery.csv.min.js"></script>
+	<!-- Load Map -->
+	<link rel="stylesheet" type="text/css" href="libs/jquery-jvectormap-2.0.5.css">
+	<script type="text/javascript" src="libs/jquery-jvectormap-2.0.5.min.js"></script>
+	<script type="text/javascript" src="js/jquery-jvectormap-fr-merc.js"></script>
+
+	<!-- Load style -->
+	<link rel="stylesheet" type="text/css" href="style/main.css">
+
+	<!-- Load updateMap -->
+	<script type="text/javascript" src="js/updateMap.js"></script>
+
+	
+
+</head>
+<body>
+	
+	<div class="wrapper">
+		<p id="depToFind"></p>
+		<p id="timer">00:00:00</p>
+		<p id="mistakes">Erreurs : 0</p>
+	</div>
+	<div id="map"></div>
+
+	<!-- load chrono -->
+	<script type="text/javascript" src="js/timer.js"></script>
+
+	<script type="text/javascript" src="js/init.js"></script>
+
+</body>
+</html>
