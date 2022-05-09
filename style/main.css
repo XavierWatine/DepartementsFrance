@@ -59,6 +59,7 @@ p {
 }
 
 #help {
+	display: inline-block;
 	padding-top: 10vh;
 	grid-column: 1;
 }
@@ -92,4 +93,9 @@ p {
 #mistakes {
 	grid-column: 3;
 	width: 30vw;
+}
+
+
+.blason {
+	
 }

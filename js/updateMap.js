@@ -28,12 +28,13 @@ $(document).on('keypress',function(e) {
 
 function getClickedCode(e, code) {
 	timer();
-	for (let i=0; i<data.length; i++) {
+
+	if (!depFound.includes(code)) {
+		for (let i=0; i<data.length; i++) {
 		if(data[i]["N°"] == code) {
-
-
 			if(code == depToFind) {
 				blink(code, 'green');
+				sound("success");
 				depFound.push(depLeft.splice(r, 1)[0]);
 				r = Math.floor(Math.random()*depLeft.length);
 				depToFind = depLeft[r];
@@ -57,12 +58,18 @@ function getClickedCode(e, code) {
 			} else {
 
 				blink(code, 'red');
+				sound("lose");
 				mistakes++;
 				$("#mistakes").text("Erreurs : " + mistakes);
+
+
 			}
 			break;
 		}
 	}
+	}
+
+	
 }
 
 function hover(e, el, code) {
@@ -76,7 +83,12 @@ function hover(e, el, code) {
 				break;
 			}
 		}
-		el.html("<center><b>" + code.split('-')[1] + " - " + el.html() + "</b> <br/>" + data[index]["Chef-lieu/préfecture"] + "</center>");
+		let blason = new Image(25, 25);
+		blason.src = "src/images/" + data[index]["N°"].split('-')[1] + ".png";
+		el.html("<b>" + code.split('-')[1] + " - " + el.html() + "</b> <br/>" + data[index]["Chef-lieu/préfecture"] + "<br/>");
+
+		el.append(blason);
+		el.html("<center>" + el.html() + "</center>")
 	}
 	
 	if (el[0].style.left=="" || el.html() == '?') {

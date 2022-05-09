@@ -11,6 +11,9 @@ let mistakes = 0;
 
 let run = false;
 
+let streak = 0;
+let badStreak = 0;
+
 let winingSentence = [
 	"C'est gagné bravo chef !",
 	"Un gros gg à toi !",
@@ -36,7 +39,7 @@ $(document).on('click', function() {
 		}
 		r = Math.floor(Math.random()*depLeft.length);
 		// console.log(r);
-		// r = 54;
+		// r = 74;
 		depToFind = depLeft[r];
 		$("#depToFind").text(data[r]["N°"].split('-')[1] + " - " + data[r]["Département"]);
 		run = true;
