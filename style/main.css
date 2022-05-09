@@ -3,6 +3,8 @@
 	margin: 0;
 	padding: 0;
 	font-family: Arial;
+	color: white;
+	
 }
 
 @font-face{
@@ -16,6 +18,9 @@ body {
 
 p {
 	font-size: 25px;
+	text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
+	-moz-text-shadow: 0 0 2px #000;
+	-webkit-text-shadow: 0 0 2px #000;
 }
 
 
@@ -47,10 +52,21 @@ p {
 #map {
 	display: inline-block;
 	height: 100%;
-	grid-column: 1 / 6;
+	grid-column: 2 / 5;
 
 	max-width: 100%;
 	max-height: 85vh;
+}
+
+#help {
+	padding-top: 10vh;
+	grid-column: 1;
+}
+
+#help > p {
+	margin: auto;
+	width: 50%;
+	font-size: 12px;
 }
 
 #mapWrapper {

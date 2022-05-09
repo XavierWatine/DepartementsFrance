@@ -47,7 +47,7 @@ function getClickedCode(e, code) {
 				if (index != null) {
 					$("#depToFind").text(data[index]["N°"].split('-')[1] + " - " + data[index]["Département"]);
 				} else {
-					$("#depToFind").text("C'est gagné bravo chef !");
+					$("#depToFind").text(winingSentence);
 					run = false;
 				}
 				

@@ -31,7 +31,7 @@ $(document).ready(function(){
 
 $(document).on('click', function() {
 	if(!run) {
-			for (let i=0; i<data.length; i++) {
+		for (let i=0; i<data.length; i++) {
 			depLeft.push(data[i]["N°"]);
 		}
 		r = Math.floor(Math.random()*depLeft.length);
@@ -42,6 +42,7 @@ $(document).on('click', function() {
 		run = true;
 		timer();
 		updateMap();
+		$("#help").remove();
 	}
 })
 
