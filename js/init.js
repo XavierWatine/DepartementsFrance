@@ -50,9 +50,6 @@ $(document).on('click', function() {
 			updateMap();
 			$("#help").remove();
 			init = false;
-		} else {
-			console.log("test");
-			location.reload();
 		}
 		
 	}
